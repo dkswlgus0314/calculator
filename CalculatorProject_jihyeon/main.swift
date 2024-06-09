@@ -10,6 +10,19 @@
  🌟 Lv.1~2 계산기 만들기 과제 🌟
  1. 더하기, 빼기, 나누기, 곱하기, 나머지 연산을 수행하는 calculator 클래스 생성
  2. 생성한 클래스를 이용하여 연산 진행하고 출력
+ 
+ 🌟 Lv.3 계산기 만들기 과제 🌟
+ - 아래 각각의 클래스들을 만들고 클래스간의 관계를 고려하여 Calculator 클래스와 관계 맺기
+ - AddOperation(더하기)
+ - SubstractOperation(빼기)
+ - MultiplyOperation(곱하기)
+ - DivideOperation(나누기)
+ 
+ - Calculator 클래스의 내부코드를 변경
+ - 관계를 맺은 후 필요하다면 별도로 만든 연산 클래스의 인스턴스를 Calculator 내부에서 사용
+ 
+ - Lv2 와 비교하여 어떠한 점이 개선 되었는지 스스로 생각해 봅니다.
+ - hint. 클래스의 책임(단일책임원칙)
  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 
 //계산기 사용법 설명 텍스트
@@ -40,39 +53,94 @@ class Calculator {
     
     func calculate() -> Double {
         switch operators {
-        case "+" : return add()
-        case "-" : return subtract()
-        case "*" : return multiply()
-        case "/" : return divide()
-        case "%" : return remainder()
+        case "+" :
+            let addOperation = AddOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            return addOperation.add()
+        case "-" :
+            let substractOperation = SubstractOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            return substractOperation.subtract()
+        case "*" :
+            let multiplyOperation = MultiplyOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            return multiplyOperation.multiply()
+        case "/" :
+            let divideOperation = DivideOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            return divideOperation.divide()
+        case "%" :
+            let remainderOperation = RemainderOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            return remainderOperation.remainder()
         default: return 0
         }
     }
     
     
-    //연산 메서드
-    //덧셈
+}
+
+//연산 클래스
+class AddOperation {
+    var firstNumber: Int
+    var secondNumber: Int
+    
+    init(firstNumber: Int, secondNumber: Int) {
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
     
     func add() -> Double{
         return Double(firstNumber + secondNumber)
     }
+}
+
+class SubstractOperation{
+    var firstNumber: Int
+    var secondNumber: Int
     
-    //뺄셈
+    init(firstNumber: Int, secondNumber: Int) {
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
+    
     func subtract() -> Double{
         return Double(firstNumber - secondNumber)
     }
+}
+
+class MultiplyOperation {
+    var firstNumber: Int
+    var secondNumber: Int
     
-    //곱셈
+    init(firstNumber: Int, secondNumber: Int) {
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
+    
     func multiply() -> Double{
         return Double(firstNumber * secondNumber)
     }
+}
+
+class DivideOperation {
+    var firstNumber: Int
+    var secondNumber: Int
     
-    //나눗셈
+    init(firstNumber: Int, secondNumber: Int) {
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
+    
     func divide() -> Double{
         return Double(firstNumber / secondNumber)
     }
+}
+
+class RemainderOperation {
+    var firstNumber: Int
+    var secondNumber: Int
     
-    //나머지
+    init(firstNumber: Int, secondNumber: Int) {
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
+    
     func remainder() -> Double{
         return Double(firstNumber % secondNumber)
     }
