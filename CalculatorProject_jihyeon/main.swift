@@ -12,6 +12,14 @@
  2. 생성한 클래스를 이용하여 연산 진행하고 출력
  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
 
+//계산기 사용법 설명 텍스트
+print("""
+------- [계산기 사용법] -------
+1. 첫 번째 줄은 숫자를 입력해주세요.
+2. 두 번째 줄은 연산 기호(+, -, /, *, %) 입력해주세요.
+3. 세 번째 줄은 숫자를 입력해주세요.
+----------------------------
+""")
 
 
 class Calculator {
@@ -44,6 +52,7 @@ class Calculator {
     
     //연산 메서드
     //덧셈
+    
     func add() -> Double{
         return Double(firstNumber + secondNumber)
     }
@@ -76,7 +85,7 @@ while true {
         print("[ 숫자만 입력해주세요. ]")
         continue
     }
-    guard let ops = readLine() else {     //String
+    guard let ops = readLine() , ["+", "-", "/", "*","%"].contains(ops) else {     //String
         print("[ +, -, /, *, % 중에서만 입력해주세요. ]")
         continue
     }
@@ -87,13 +96,12 @@ while true {
     
     //인스턴스 생성하여 변수에 할당
     let calculator = Calculator(firstNumber: num1, operators: ops, secondNumber: num2)
-
+    
     
     var result = calculator.calculate()
-
-    print(result)
-    break 
+    
+    print("[계산 결과] : \(result)")
+    break
 }
-
 
 
