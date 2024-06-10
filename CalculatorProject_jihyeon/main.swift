@@ -54,19 +54,19 @@ class Calculator {
     func calculate() -> Double {
         switch operators {
         case "+" :
-            let addOperation = AddOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            let addOperation = AddOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return addOperation.add()
         case "-" :
-            let substractOperation = SubstractOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            let substractOperation = SubstractOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return substractOperation.subtract()
         case "*" :
-            let multiplyOperation = MultiplyOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            let multiplyOperation = MultiplyOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return multiplyOperation.multiply()
         case "/" :
-            let divideOperation = DivideOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            let divideOperation = DivideOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return divideOperation.divide()
         case "%" :
-            let remainderOperation = RemainderOperation(firstNumber: <#T##Int#>, secondNumber: <#T##Int#>)
+            let remainderOperation = RemainderOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return remainderOperation.remainder()
         default: return 0
         }
