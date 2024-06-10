@@ -73,6 +73,10 @@ class Calculator {
             let multiplyOperation = MultiplyOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return multiplyOperation.multiply()
         case "/" :
+            //분모가 0일 때 예외처리
+            guard secondNumber != 0 else{
+                return 0.0
+            }
             let divideOperation = DivideOperation(firstNumber: firstNumber, secondNumber: secondNumber)
             return divideOperation.divide()
         case "%" :
