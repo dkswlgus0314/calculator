@@ -85,8 +85,6 @@ class Calculator {
         default: return 0
         }
     }
-    
-    
 }
 
 //연산 클래스
