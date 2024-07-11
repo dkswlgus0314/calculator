@@ -45,8 +45,6 @@ print("""
 """)
 
 
-
-
 class Calculator {
     
     //속성(property)
